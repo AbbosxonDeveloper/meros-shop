@@ -1,0 +1,1789 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Meros-Shop Exam Application",
+        "description": "This is application for Najot Ta'lim exam",
+        "version": "0.0.0"
+    },
+    "paths": {
+        "/users/signup": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Sign up",
+                "description": "users sign up",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Shoxrux",
+                                    "password": "shokhrukh",
+                                    "email": "ddsdfsd@gmail.com",
+                                    "phone": "998909533321"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "status of response"
+                                        },
+                                        "message": {
+                                            "default": "registered",
+                                            "description": "you are registered"
+                                        },
+                                        "data": {
+                                            "name": "Shoxrux",
+                                            "password": "shokhrukh",
+                                            "email": "ddsdfsd@gmail.com",
+                                            "phone": "998909533321",
+                                            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODMzMTIwZDYtZjM2MS00YzJiLWEzNWEtZTJlOWU2MWM5YTFiIiwiaWF0IjoxNjc1ODM0MjkxfQ.JXDT8axthcOQFcJpPNyKHiZRtxoCin45ipgkaf_yuT4"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/login": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Log ip",
+                "description": "users log in",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Shoxrux",
+                                    "password": "shokhrukh"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "default": "authorizated",
+                                            "description": "you are authorizated"
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "status of response"
+                                        },
+                                        "data": {
+                                            "name": "Shoxrux",
+                                            "password": "shokhrukh",
+                                            "email": "ddsdfsd@gmail.com",
+                                            "phone": "998909533321",
+                                            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiODMzMTIwZDYtZjM2MS00YzJiLWEzNWEtZTJlOWU2MWM5YTFiIiwiaWF0IjoxNjc1ODM0MjkxfQ.JXDT8axthcOQFcJpPNyKHiZRtxoCin45ipgkaf_yuT4"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/get": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Grt all users",
+                "description": "get all existing users",
+                "parameters": [{
+                    "name": "token",
+                    "in": "header",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            "application/json:": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "default": "OK",
+                                            "description": "Message of the response"
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "description": "view Category",
+                                            "default": [{
+                                                    "name": "abbos",
+                                                    "email": "abbos@gmail.com",
+                                                    "phone": "998909534403",
+                                                    "password": "abboskhon"
+                                                },
+                                                {
+                                                    "name": "hikmat",
+                                                    "email": "hikmat@gmail.com",
+                                                    "phone": "998909534405",
+                                                    "password": "hikmatkhon"
+                                                },
+                                                {
+                                                    "name": "nodir",
+                                                    "email": "nodir@gmail.com",
+                                                    "phone": "998909534404",
+                                                    "password": "nodirkhon"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/account": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "get user by token",
+                "description": "users will get their data by their token.",
+                "parameters": [{
+                    "name": "token",
+                    "in": "headers"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "description": "user data from token",
+                                            "default": {
+                                                "name": "nodir",
+                                                "email": "nodir@gmail.com",
+                                                "phone": "998909534404",
+                                                "password": "nodirkhon"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categories/get": {
+            "get": {
+                "tags": ["Categories"],
+                "summary": "Get all categories",
+                "description": "you can get all categories",
+                "parameters": [{
+                    "name": "token",
+                    "in": "headers",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "description": "get all categories",
+                                            "default": [{
+                                                    "category_id": "3bb8e86c-77dd-4127-810b-532fee61aea7",
+                                                    "category_title": "Kitoblar"
+                                                },
+                                                {
+                                                    "category_id": "sft5e86c-77dd-4127-810b-532fdd61ae87",
+                                                    "category_title": "Kiyimlar"
+                                                },
+                                                {
+                                                    "category_id": "re7db86c-77dd-4127-810b-532fee6bgo87",
+                                                    "category_title": "Disklar"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/category/get/{id}": {
+            "get": {
+                "tags": ["Categories"],
+                "summary": "get category",
+                "description": "get one category by id",
+                "parameters": [{
+                        "name": "token",
+                        "in": "headers",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "description": "data of category",
+                                            "default": [{
+                                                "category_id": "3bb8e86c-77dd-4127-810b-532fee61aea7",
+                                                "category_title": "Erkaklar uchun",
+                                                "subcategories": []
+                                            }]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categories/create": {
+            "post": {
+                "tags": ["Categories"],
+                "summary": "create NewCategory",
+                "description": "add new category to categories",
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "OK",
+                                            "description": "Message of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "description": "created category",
+                                            "default": {
+                                                "category_id": "3bb8e86c-77dd-4127-810b-532fee61aea7",
+                                                "category_title": "Kitoblar"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categories/update/{id}": {
+            "put": {
+                "tags": ["Categories"],
+                "summary": "update category",
+                "description": "update category by id",
+                "parameters": [{
+                    "in": "path",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "name": "id",
+                    "required": true
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "updated",
+                                            "description": "Message of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "default": {
+                                                "category_id": "3bb8e86c-77dd-4127-810b-532fee61aea7",
+                                                "category_title": "Erkaklar uchun"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categories/delete/{id}": {
+            "delete": {
+                "tags": ["Categories"],
+                "summary": "delete category",
+                "description": "delete category by id",
+                "parameters": [{
+                    "in": "path",
+                    "name": "id",
+                    "schema": {
+                        "type": "string"
+                    },
+
+                    "required": true
+                }],
+                "responses": {
+                    "204": {
+                        "description": "no action",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "deleted",
+                                            "description": "Message of the response"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subcategories/get": {
+            "get": {
+                "tags": ["Subcategories"],
+                "summary": "get subcategories",
+                "description": "get all subcategories",
+                "parameters": [{
+                    "name": "token",
+                    "in": "headers",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": [{
+                                                "subcategory_id": "5bd4bec5-5114-4c2a-9f0d-df95e039a308",
+                                                "subcategory_title": "Islomiy Kitoblar"
+                                            },
+                                            {
+                                                "subcategory_id": "6d70086d-2526-4e4e-919a-c536372ff196",
+                                                "subcategory_title": "Biologiya kitoblar"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subcategories/get/{id}": {
+            "get": {
+                "tags": ["Subcategories"],
+                "summary": "get one subcategory",
+                "description": "get subcategory by id",
+                "parameters": [{
+                        "name": "token",
+                        "in": "headers",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "description": "data from subcategory",
+                                            "default": {
+                                                "subcategory_id": "6d70086d-2526-4e4e-919a-c536372ff196",
+                                                "subcategory_title": "Biologiya kitoblar"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subcategories/create": {
+            "post": {
+                "tags": ["Subcategories"],
+                "summary": "create NewSubCategory",
+                "description": "create NewSubCategory",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "title": "Detektiv",
+                                    "id": "3bb8e86c-77dd-4127-810b-532fee61aea7"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "201",
+                                            "description": "Status of the response"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "created",
+                                            "description": "Message of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "default": {
+                                                "subcategory_id": "d6fb51de-6adc-4d6c-ba3e-97f2ea9647fb",
+                                                "subcategory_title": "Detektiv"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subcategories/update/{id}": {
+            "put": {
+                "tags": ["Subcategories"],
+                "summary": "update subCategory",
+                "description": "update subCategory by id",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "required": true
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "title": "Tarixiy kitoblar",
+                                    "id": "3bb8e86c-77dd-4127-810b-532fee61aea7"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Update",
+                                            "description": "Message of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "default": {
+                                                "subcategory_title": "Tarixiy kitoblar"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/subcategories/delete/{id}": {
+            "delete": {
+                "tags": ["Subcategories"],
+                "summary": "delete subcategory",
+                "description": "delete subcategory by id",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "no action",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "204",
+                                            "description": "Status of the response"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Deleted",
+                                            "description": "Message of the response"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/catalogs/get": {
+            "get": {
+                "tags": ["Catalogs"],
+                "summary": "catalogs",
+                "description": "get all catalogs",
+                "parameters": {
+                    "name": "token",
+                    "in": "headers",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": [{
+                                            "type": "object",
+                                            "description": "all catalogs data",
+                                            "default": [{
+                                                    "catalog_id": "1f46eb17-f068-44aa-a87d-6e59c86cc138",
+                                                    "catalog_title": "Qur'on"
+                                                },
+                                                {
+                                                    "catalog_id": "1f46eb17-f068-44aa-a87d-6e59c86cc138",
+                                                    "catalog_title": "Hadislar"
+                                                },
+                                                {
+                                                    "catalog_id": "6b46eb17-f068-44aa-a87d-6e59c86cc138",
+                                                    "catalog_title": "Duolar"
+                                                },
+                                                {
+                                                    "catalog_id": "5e46bb17-f068-44aa-a87d-6e59c56cc118",
+                                                    "catalog_title": "Tajvid"
+                                                }
+                                            ]
+                                        }]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/catalogs/get/{id}": {
+            "get": {
+                "tags": ["Catalogs"],
+                "summary": "catalogs",
+                "description": "get all catalogs",
+                "parameters": [{
+                        "name": "token",
+                        "in": "headers",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "description": "all catalogs data",
+                                            "default": {
+                                                "catalog_id": "1f46eb17-f068-44aa-a87d-6e59c86cc138",
+                                                "catalog_title": "Qur'on"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/catalogs/create": {
+            "post": {
+                "tags": ["Catalogs"],
+                "summary": "create catalog",
+                "description": "create catalog",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "title": "Sherlok Holms toplami",
+                                    "id": "3bb8e86c-77dd-4127-810b-532fee61aea7"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Created",
+                                            "description": "message of the response"
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "201",
+                                            "description": "status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "default": {
+                                                "catalog_id": "d6fb51de-6adc-4d6c-ba3e-97f2ea9647fb",
+                                                "catalog_title": "Sherlok Holms toplami",
+                                                "subcategory": "4e0c4333-e451-4a41-83ab-9cc97ae908d7"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/catalogs/update/{id}": {
+            "put": {
+                "tags": ["Catalogs"],
+                "summary": "update catalogs",
+                "description": "update catalogs by id",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "required": true
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "title": "Sherlok holm toplami yangi",
+                                    "id": "3bb8e86c-77dd-4127-810b-532fee61aea7"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Updated",
+                                            "description": "Message of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "default": {
+                                                "catalog_title": "Sherlok Holms toplami yangi"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/catalogs/delete/{id}": {
+            "delete": {
+                "tags": ["Catalogs"],
+                "summary": "delete catalog",
+                "description": "delete catalog by id",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "no action",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "204",
+                                            "description": "Status of the response"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Deleted",
+                                            "description": "Message of the response"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/get": {
+            "get": {
+                "tags": ["Products"],
+                "summary": "get products",
+                "description": "get products",
+                "parameters": [{
+                    "name": "token",
+                    "in": "headers"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "default": [{
+                                                    "product_id": "dd26d57b-4833-4d25-a877-da8b64bf965c",
+                                                    "product_title": "Hadis inglizcha",
+                                                    "description": "Imom Buxoriyning Hadis kitoblari ingliz tiliga o'girildi. Avtorning harakatini qadrlang.",
+                                                    "price": 80000,
+                                                    "author": "Ahmad Kevin",
+                                                    "language": "English",
+                                                    "title": "english && arabic",
+                                                    "gender": null,
+                                                    "season": null,
+                                                    "brand": null,
+                                                    "material": null
+                                                },
+                                                {
+                                                    "product_id": "582ee9a8-6384-4f00-887f-c1d58cf6cbb3",
+                                                    "product_title": "Kechki Duolar to'plami",
+                                                    "description": "kechki payt oqiladigan duolar kitobi",
+                                                    "price": 61000,
+                                                    "author": "Umar Uzoqov",
+                                                    "language": "kiril",
+                                                    "title": "kiril && uzbek",
+                                                    "gender": null,
+                                                    "season": null,
+                                                    "brand": null,
+                                                    "material": null
+                                                },
+                                                {
+                                                    "product_id": "cbeb0c8f-f52a-4a5b-b4f8-20ea69bf05f2",
+                                                    "product_title": "Oyatlar ",
+                                                    "description": "oyatlar kitobi",
+                                                    "price": 71000,
+                                                    "author": "Umar Uzoqov",
+                                                    "language": "kiril",
+                                                    "title": "kiril && uzbek",
+                                                    "gender": null,
+                                                    "season": null,
+                                                    "brand": null,
+                                                    "material": null
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/create": {
+            "post": {
+                "tags": ["Products"],
+                "summary": "create product",
+                "description": "create product",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "product_title": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "tyoe": "number"
+                                    },
+                                    "catalog_id": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "author": {
+                                        "type": "string"
+                                    },
+                                    "language": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "season": {
+                                        "type": "string"
+                                    },
+                                    "brand": {
+                                        "type": "string"
+                                    },
+                                    "material": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Created",
+                                            "description": "message of the response"
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "201",
+                                            "description": "status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "default": {
+                                                "product_title": "Oyatlar ",
+                                                "price": 71000,
+                                                "description": "oyatlar kitobi",
+                                                "catalog": "1f46eb17-f068-44aa-a87d-6e59c86cc138",
+                                                "title": "kiril && uzbek",
+                                                "author": "Umar Uzoqov",
+                                                "language": "kiril",
+                                                "gender": null,
+                                                "season": null,
+                                                "brand": null,
+                                                "material": null,
+                                                "product_id": "cbeb0c8f-f52a-4a5b-b4f8-20ea69bf05f2"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/update{id}": {
+            "put": {
+                "tags": ["Products"],
+                "summary": "update product",
+                "description": "update product",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "required": true
+                }],
+
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "product_title": {
+                                        "type": "string"
+                                    },
+                                    "price": {
+                                        "tyoe": "number"
+                                    },
+                                    "catalog_id": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "author": {
+                                        "type": "string"
+                                    },
+                                    "language": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "season": {
+                                        "type": "string"
+                                    },
+                                    "brand": {
+                                        "type": "string"
+                                    },
+                                    "material": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Created",
+                                            "description": "message of the response"
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "201",
+                                            "description": "status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "default": {
+                                                "product_title": "Oyatlar ",
+                                                "price": 71000,
+                                                "description": "oyatlar kitobi",
+                                                "catalog": "1f46eb17-f068-44aa-a87d-6e59c86cc138",
+                                                "title": "kiril && uzbek",
+                                                "author": "Umar Uzoqov",
+                                                "language": "kiril",
+                                                "gender": null,
+                                                "season": null,
+                                                "brand": null,
+                                                "material": null,
+                                                "product_id": "cbeb0c8f-f52a-4a5b-b4f8-20ea69bf05f2"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/delete{id}": {
+            "delete": {
+                "tags": ["Products"],
+                "summary": "delete product",
+                "description": "delete product",
+                "parameters": {
+                    "name": "id",
+                    "in": "path",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "no action",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "default": "deleted",
+                                            "description": "message of the response"
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "204",
+                                            "description": "status of the response"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/comments/get": {
+            "get": {
+                "tags": ["Comments"],
+                "summary": "Comments",
+                "description": "get all Comments",
+                "parameters": {
+                    "name": "token",
+                    "in": "headers",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": [{
+                                            "type": "object",
+                                            "description": "all Comments data",
+                                            "default": [{
+                                                "comment_id": "0ed6d039-6fff-47b3-9087-2f7bb9c944e1",
+                                                "comment_title": "rahmat silaga",
+                                                "createdAt": "2023-02-11T07:11:10.790Z",
+                                                "updatedAt": "2023-02-11T07:11:10.790Z",
+                                                "product": {
+                                                    "product_id": "dd26d57b-4833-4d25-a877-da8b64bf965c",
+                                                    "product_title": "Hadis inglizcha",
+                                                    "description": "Imom Buxoriyning Hadis kitoblari ingliz tiliga o'girildi. Avtorning harakatini qadrlang.",
+                                                    "price": 80000,
+                                                    "author": "Ahmad Kevin",
+                                                    "language": "English",
+                                                    "title": "english && arabic",
+                                                    "gender": null,
+                                                    "season": null,
+                                                    "brand": null,
+                                                    "material": null
+                                                },
+                                                "comment_user": {
+                                                    "user_id": "25ee0d92-89cd-4f2b-8233-446ee76cbe96",
+                                                    "name": "Komil",
+                                                    "password": "komiljon1",
+                                                    "email": "kommilbbk@gmail.com",
+                                                    "phone": "998909534403"
+                                                }
+                                            }]
+                                        }]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/comments/create": {
+            "post": {
+                "tags": ["Comments"],
+                "summary": "create comment",
+                "description": "create comment",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "product_id": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Created",
+                                            "description": "message of the response"
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "201",
+                                            "description": "status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "default": {
+                                                "comment_id": "0ed6d039-6fff-47b3-9087-2f7bb9c944e1",
+                                                "comment_title": "rahmat silaga",
+                                                "createdAt": "2023-02-11T07:11:10.790Z",
+                                                "updatedAt": "2023-02-11T07:11:10.790Z",
+                                                "productProductId": "dd26d57b-4833-4d25-a877-da8b64bf965c",
+                                                "commentUserUserId": "25ee0d92-89cd-4f2b-8233-446ee76cbe96"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/comments/update/{id}": {
+            "put": {
+                "tags": ["Comments"],
+                "summary": "update comment",
+                "description": "update comment",
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "token",
+                        "in": "headers",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "product_id": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Updated",
+                                            "description": "message of the response"
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "status of the response"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "default": {
+                                                "comment_id": "0ed6d039-6fff-47b3-9087-2f7bb9c944e1",
+                                                "comment_title": "rahmat silaga",
+                                                "createdAt": "2023-02-11T07:11:10.790Z",
+                                                "updatedAt": "2023-02-11T07:11:10.790Z",
+                                                "productProductId": "dd26d57b-4833-4d25-a877-da8b64bf965c",
+                                                "commentUserUserId": "25ee0d92-89cd-4f2b-8233-446ee76cbe96"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/comments/delete/{id}": {
+            "put": {
+                "tags": ["Comments"],
+                "summary": "delete comment",
+                "description": "delete comment",
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "token",
+                        "in": "headers",
+                        "required": true
+                    }
+                ],
+
+                "responses": {
+                    "204": {
+                        "description": "no action",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Deleted",
+                                            "description": "message of the response"
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "204",
+                                            "description": "status of the response"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/get": {
+            "get": {
+                "tags": ["Orders"],
+                "summary": "Orders",
+                "description": "get all Orders",
+                "parameters": {
+                    "name": "token",
+                    "in": "headers",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "200",
+                                            "description": "Status of the response"
+                                        },
+                                        "data": [{
+                                            "type": "object",
+                                            "description": "all Comments data",
+                                            "default": [{
+                                                    "order_id": "b0d37bd6-97fd-40e4-8fba-cbbdd6fec055",
+                                                    "createdAt": "2023-02-11T05:44:28.609Z",
+                                                    "count": 1,
+                                                    "updatedAt": "2023-02-11T05:44:28.609Z",
+                                                    "product": {
+                                                        "product_id": "dd26d57b-4833-4d25-a877-da8b64bf965c",
+                                                        "product_title": "Hadis inglizcha",
+                                                        "description": "Imom Buxoriyning Hadis kitoblari ingliz tiliga o'girildi. Avtorning harakatini qadrlang.",
+                                                        "price": 80000,
+                                                        "author": "Ahmad Kevin",
+                                                        "language": "English",
+                                                        "title": "english && arabic",
+                                                        "gender": null,
+                                                        "season": null,
+                                                        "brand": null,
+                                                        "material": null
+                                                    },
+                                                    "order_user": {
+                                                        "user_id": "25ee0d92-89cd-4f2b-8233-446ee76cbe96",
+                                                        "name": "Komil",
+                                                        "password": "komiljon1",
+                                                        "email": "kommilbbk@gmail.com",
+                                                        "phone": "998909534403"
+                                                    }
+                                                },
+                                                {
+                                                    "order_id": "0fc1bf06-7dd6-43ad-94ce-16aa30b7ee1f",
+                                                    "createdAt": "2023-02-11T05:44:41.896Z",
+                                                    "count": 1,
+                                                    "updatedAt": "2023-02-11T05:44:41.896Z",
+                                                    "product": {
+                                                        "product_id": "dd26d57b-4833-4d25-a877-da8b64bf965c",
+                                                        "product_title": "Hadis inglizcha",
+                                                        "description": "Imom Buxoriyning Hadis kitoblari ingliz tiliga o'girildi. Avtorning harakatini qadrlang.",
+                                                        "price": 80000,
+                                                        "author": "Ahmad Kevin",
+                                                        "language": "English",
+                                                        "title": "english && arabic",
+                                                        "gender": null,
+                                                        "season": null,
+                                                        "brand": null,
+                                                        "material": null
+                                                    },
+                                                    "order_user": {
+                                                        "user_id": "25ee0d92-89cd-4f2b-8233-446ee76cbe96",
+                                                        "name": "Komil",
+                                                        "password": "komiljon1",
+                                                        "email": "kommilbbk@gmail.com",
+                                                        "phone": "998909534403"
+                                                    }
+                                                },
+                                                {
+                                                    "order_id": "a6bfe419-8393-4fcb-a85e-2fae2a7fdf36",
+                                                    "createdAt": "2023-02-11T05:44:55.254Z",
+                                                    "count": 3,
+                                                    "updatedAt": "2023-02-11T05:44:55.254Z",
+                                                    "product": {
+                                                        "product_id": "dd26d57b-4833-4d25-a877-da8b64bf965c",
+                                                        "product_title": "Hadis inglizcha",
+                                                        "description": "Imom Buxoriyning Hadis kitoblari ingliz tiliga o'girildi. Avtorning harakatini qadrlang.",
+                                                        "price": 80000,
+                                                        "author": "Ahmad Kevin",
+                                                        "language": "English",
+                                                        "title": "english && arabic",
+                                                        "gender": null,
+                                                        "season": null,
+                                                        "brand": null,
+                                                        "material": null
+                                                    },
+                                                    "order_user": {
+                                                        "user_id": "25ee0d92-89cd-4f2b-8233-446ee76cbe96",
+                                                        "name": "Komil",
+                                                        "password": "komiljon1",
+                                                        "email": "kommilbbk@gmail.com",
+                                                        "phone": "998909534403"
+                                                    }
+                                                },
+                                                {
+                                                    "order_id": "afc157a1-51c5-41b3-a1cc-f8933170fe98",
+                                                    "createdAt": "2023-02-11T06:05:32.761Z",
+                                                    "count": 3,
+                                                    "updatedAt": "2023-02-11T06:05:32.761Z",
+                                                    "product": {
+                                                        "product_id": "582ee9a8-6384-4f00-887f-c1d58cf6cbb3",
+                                                        "product_title": "Kechki Duolar to'plami",
+                                                        "description": "kechki payt oqiladigan duolar kitobi",
+                                                        "price": 61000,
+                                                        "author": "Umar Uzoqov",
+                                                        "language": "kiril",
+                                                        "title": "kiril && uzbek",
+                                                        "gender": null,
+                                                        "season": null,
+                                                        "brand": null,
+                                                        "material": null
+                                                    },
+                                                    "order_user": {
+                                                        "user_id": "25ee0d92-89cd-4f2b-8233-446ee76cbe96",
+                                                        "name": "Komil",
+                                                        "password": "komiljon1",
+                                                        "email": "kommilbbk@gmail.com",
+                                                        "phone": "998909534403"
+                                                    }
+                                                }
+                                            ]
+                                        }]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "/orders/create": {
+                "post": {
+                    "tags": ["Orders"],
+                    "summary": "create order",
+                    "description": "create order",
+
+                    "requestBody": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "product_id": {
+                                            "type": "string"
+                                        },
+                                        "count": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responses": {
+                        "201": {
+                            "description": "Created",
+                            "content": {
+                                "application/json": {
+                                    "schema": {
+                                        "type": "object",
+                                        "properties": {
+                                            "message": {
+                                                "type": "string",
+                                                "default": "Created",
+                                                "description": "message of the response"
+                                            },
+                                            "status": {
+                                                "type": "integer",
+                                                "format": "int64",
+                                                "default": "201",
+                                                "description": "status of the response"
+                                            },
+                                            "data": {
+                                                "type": "object",
+                                                "default": {
+                                                    "order_id": "1d87ea8a-b6f0-4e6d-94f1-65846f2fe21a",
+                                                    "createdAt": "2023-02-11T08:00:12.149Z",
+                                                    "count": 3,
+                                                    "updatedAt": "2023-02-11T08:00:12.149Z",
+                                                    "productProductId": "582ee9a8-6384-4f00-887f-c1d58cf6cbb3",
+                                                    "orderUserUserId": "25ee0d92-89cd-4f2b-8233-446ee76cbe96"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/delete": {
+            "delete": {
+                "tags": ["Orders"],
+                "summary": "delete order",
+                "description": "delete order",
+                "parameters": [{
+                    "name": "token",
+                    "in": "headers",
+                    "required": true
+                }, {
+                    "name": "id",
+                    "in": "path",
+                    "required": true
+                }],
+                "responses": {
+                    "204": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "default": "Deleted",
+                                            "description": "Message of the response"
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int64",
+                                            "default": "204",
+                                            "description": "Status of the response"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
